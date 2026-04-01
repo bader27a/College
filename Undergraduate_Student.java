@@ -8,6 +8,7 @@ public class Undergraduate_Student extends Student {
     }
 
     // if abstract method is protected in the parent class, it must be implemented as protected in the child class
+    @Override
     protected double calculateGPA(double totalGradePoints, double totalCreditHours) {
         double gpa = 0.0;
         if (totalCreditHours > 0) {
@@ -26,5 +27,10 @@ public class Undergraduate_Student extends Student {
 
     public String toString() {
         return "Undergraduate Student: " + super.toString() + ", Age: " + age + ", GPA: " + gpa;
+    }
+
+    @Override
+    public double calculateGPA() {
+        return this.gpa;
     }
 }
