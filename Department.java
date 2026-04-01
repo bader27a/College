@@ -2,34 +2,36 @@ public class Department {
     protected String deptName;
     protected int totalStudent;
     protected int numOfProfessors;
-    public Professors [] profList;
+    public Professor[] profList;
 
     public Department (String deptName , int totalStudent, int numOFProfessors ) {
         this.deptName = deptName;
         this.totalStudent = totalStudent;
-        this.numOfProfessors=numOFProfessors;
-        profList = new Professors[numOFProfessors];
+        this.numOfProfessors= 0;
+        profList = new Professor[numOFProfessors];
     }
 
     public Department() {
 
     }
 
-    public void Search_professor (String d) {
+    public Professor Search_professor (String d) {
         boolean f = true;
         for (int i = 0 ; i<numOfProfessors;i++) {
-            if(profList[i].id.equalsIgnoreCase(d)) {
+            if(profList[i].getId().equalsIgnoreCase(d)) {
                 System.out.println(profList[i].toString());
                 f =false;
-                return;
+                return profList[i];
             }
         }
         if(f)
             System.out.println("No results found.");
 
+        return new Professor("", "", 0);
     }
 
-    public void addProfessor(Professors p) {
+
+    public void addProfessor(Professor p) {
         if(numOfProfessors<profList.length) {
             profList[numOfProfessors]=p;
             numOfProfessors++;
@@ -38,7 +40,7 @@ public class Department {
     }
     public void removeProfessor(String k) {
         for(int i = 0 ; i<numOfProfessors;i++) {
-            if(profList[i].id.equalsIgnoreCase(k)) {
+            if(profList[i].getId().equalsIgnoreCase(k)) {
                 for(int j =i; j<numOfProfessors-1;j++) {
                     profList[j]=profList[j+1];
                 }
