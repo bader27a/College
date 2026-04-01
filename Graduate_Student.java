@@ -29,4 +29,8 @@ public class Graduate_Student extends Student {
         return "Graduate Student: " + super.toString() + ", Academic Degree: " + academic_Degree + ", GPA: " + gpa;
     }
 
+    public double calculateGPA() {
+        return this.gpa;
+    }
+
 }
