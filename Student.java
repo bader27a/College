@@ -3,6 +3,7 @@ public abstract class Student extends Department implements reward {
     private String name;
     private String id ;
 
+    //class constructor
     public Student (String name , String id ){
         super();
         this.name=name;
